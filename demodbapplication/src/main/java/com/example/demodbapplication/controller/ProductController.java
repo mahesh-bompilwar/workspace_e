@@ -7,6 +7,7 @@ import com.example.demodbapplication.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 @RestController
@@ -22,7 +23,7 @@ public class ProductController {
     }
 
     @GetMapping("/getProduct/{id}")
-    public Product getProduct(@PathVariable Long id){
+    public Product getProduct(@PathVariable long id){
         return productService.getProductById(id);
     }
 
@@ -35,4 +36,10 @@ public class ProductController {
     public Product modifyProduct(@RequestBody Product product){
         return productService.modifyProduct(product);
     }
+
+    @DeleteMapping("/deleteProduct/{id}")
+    public void deleteProduct(@PathVariable long id){
+        productService.deleteProductById(id);
+    }
+
 }

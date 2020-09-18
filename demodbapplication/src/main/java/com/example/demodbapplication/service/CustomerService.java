@@ -23,6 +23,10 @@ public class CustomerService {
     public Customer addCustomer(Customer customer){
         return customerRepository.save(customer);
     }
+    public void deleteCustomerById(long id){
+        customerRepository.deleteById(id);
+    }
+
     public Customer modifyCustomer(Customer customer){
         Customer existingCustomer = customerRepository.findById(customer.getId()).orElse(null);
         if(existingCustomer != null){
